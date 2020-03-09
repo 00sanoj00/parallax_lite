@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/MulledWine</item>
+        <item name="colorPrimaryDark">@color/MulledWine</item>
+        <item name="colorAccent">@color/MulledWine</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/MulledWine</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/MulledWine</item>
+    </style>
+
+</resources>
