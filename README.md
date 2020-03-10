@@ -26,6 +26,10 @@
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/00sanoj00/parallax_lite/issues). 
 
+## 🤝 Video
+
+[![Watch the video](https://i9.ytimg.com/vi/QdbOTwxSIu0/mq3.jpg?sqp=CKnnnfMF&rs=AOn4CLD30aLxLHb-t-wO0qJG06xWvf1MHA)](https://youtu.be/QdbOTwxSIu0)
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
