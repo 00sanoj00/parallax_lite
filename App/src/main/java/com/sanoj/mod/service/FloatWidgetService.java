@@ -2,6 +2,9 @@ package com.sanoj.mod.service;
 
 
 import android.app.Service;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
@@ -12,11 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.sanoj.mod.plzlite.MainActivity;
 import com.sanoj.mod.plzlite.R;
-
 public class FloatWidgetService extends Service {
     private WindowManager mWindowManager;
     private View mFloatingWidget;
@@ -25,6 +24,7 @@ public class FloatWidgetService extends Service {
     private String litegreen = "com.facebook.litf";
     private String litepink = "com.facebook.lith";
     private String liteblack = "com.facebook.liti";
+    private String command;
     public FloatWidgetService() {
     }
     @Override
@@ -109,12 +109,56 @@ public class FloatWidgetService extends Service {
         mFloatingWidget.findViewById(R.id.btnred).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.facebook.litg");
-                if (launchIntent != null) {
-                    startActivity(launchIntent);
-                } else {
-                    Toast.makeText(FloatWidgetService.this, "There is no package available in android", Toast.LENGTH_LONG).show();
-                }
+
+               // openApp(FloatWidgetService.this, "com.facebook.litg");
+                Intent intent = new Intent();
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setComponent(new ComponentName("com.facebook.litg","com.facebook.litg.MainActivity"));
+                startActivity(intent);
+                collapsedView.setVisibility(View.VISIBLE);
+                expandedView.setVisibility(View.GONE);
+
+            }
+        });
+        mFloatingWidget.findViewById(R.id.btngrn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // openApp(FloatWidgetService.this, "com.facebook.litg");
+                Intent intent = new Intent();
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setComponent(new ComponentName("com.facebook.litf","com.facebook.litf.MainActivity"));
+                startActivity(intent);
+                collapsedView.setVisibility(View.VISIBLE);
+                expandedView.setVisibility(View.GONE);
+
+            }
+        });
+        mFloatingWidget.findViewById(R.id.btnpink).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // openApp(FloatWidgetService.this, "com.facebook.litg");
+                Intent intent = new Intent();
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setComponent(new ComponentName("com.facebook.lith","com.facebook.lith.MainActivity"));
+                startActivity(intent);
+                collapsedView.setVisibility(View.VISIBLE);
+                expandedView.setVisibility(View.GONE);
+
+            }
+        });
+        mFloatingWidget.findViewById(R.id.btnblck).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // openApp(FloatWidgetService.this, "com.facebook.litg");
+                Intent intent = new Intent();
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setComponent(new ComponentName("com.facebook.liti","com.facebook.liti.MainActivity"));
+                startActivity(intent);
+                collapsedView.setVisibility(View.VISIBLE);
+                expandedView.setVisibility(View.GONE);
 
             }
         });
@@ -127,4 +171,20 @@ public class FloatWidgetService extends Service {
         super.onDestroy();
         if (mFloatingWidget != null) mWindowManager.removeView(mFloatingWidget);
     }
+    public static boolean openApp(Context context, String packageName) {
+        PackageManager manager = context.getPackageManager();
+        try {
+            Intent i = manager.getLaunchIntentForPackage(packageName);
+            if (i == null) {
+                return false;
+                //throw new ActivityNotFoundException();
+            }
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+            context.startActivity(i);
+            return true;
+        } catch (ActivityNotFoundException e) {
+            return false;
+        }
+    }
+
 }
