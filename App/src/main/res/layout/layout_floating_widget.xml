@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/root_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+        <RelativeLayout
+            android:id="@+id/collapse_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+            <ImageView
+                android:id="@+id/collapsed_iv"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_facebook"
+                tools:ignore="ContentDescription" />
+            <ImageView
+                android:id="@+id/close_btn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/ic_cancel"
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
+        <LinearLayout
+            android:visibility="visible"
+            android:id="@+id/expanded_container"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:background="@drawable/my_swipe_button_backgrund_this_is_my_disgine_yes_of_corus"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_facebook"
+                tools:ignore="ContentDescription" />
+
+
+
+            <ImageView
+                android:id="@+id/close_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_cancel"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>
