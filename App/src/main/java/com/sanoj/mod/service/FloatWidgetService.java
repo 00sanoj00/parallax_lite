@@ -3,6 +3,7 @@ package com.sanoj.mod.service;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.os.IBinder;
 import android.view.Gravity;
@@ -11,13 +12,19 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.sanoj.mod.plzlite.MainActivity;
 import com.sanoj.mod.plzlite.R;
 
 public class FloatWidgetService extends Service {
     private WindowManager mWindowManager;
     private View mFloatingWidget;
     private WindowManager.LayoutParams params;
+    private String litered = "com.facebook.litg";
+    private String litegreen = "com.facebook.litf";
+    private String litepink = "com.facebook.lith";
+    private String liteblack = "com.facebook.liti";
     public FloatWidgetService() {
     }
     @Override
@@ -96,6 +103,19 @@ public class FloatWidgetService extends Service {
                         return true;
                 }
                 return false;
+            }
+        });
+
+        mFloatingWidget.findViewById(R.id.btnred).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.facebook.litg");
+                if (launchIntent != null) {
+                    startActivity(launchIntent);
+                } else {
+                    Toast.makeText(FloatWidgetService.this, "There is no package available in android", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }

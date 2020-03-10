@@ -30,17 +30,47 @@
                 tools:ignore="ContentDescription" />
         </RelativeLayout>
         <LinearLayout
-            android:visibility="visible"
+            android:visibility="gone"
             android:id="@+id/expanded_container"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:background="@drawable/my_swipe_button_backgrund_this_is_my_disgine_yes_of_corus"
             android:orientation="horizontal"
             android:padding="5dp">
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/ic_facebook"
+            <ImageButton
+                android:id="@+id/btnred"
+                android:layout_margin="5dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_red"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/btngrn"
+                android:layout_margin="5dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_green"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/btnpink"
+                android:layout_margin="5dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_pink"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/btnblck"
+                android:layout_margin="5dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_black"
                 tools:ignore="ContentDescription" />
 
 
