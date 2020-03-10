@@ -31,5 +31,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'com.tbuonomo:creative-viewpager:1.0.1'
+    implementation 'com.github.Piashsarker:AndroidAppUpdateLibrary:1.0.3'
+    implementation 'com.schibsted.spain:parallax-layer-layout:1.1.1'
+    implementation 'com.ebanx:swipe-button:0.8.3'
 }

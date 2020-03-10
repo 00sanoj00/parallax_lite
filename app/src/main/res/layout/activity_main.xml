@@ -1,10 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/MulledWine"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <com.schibsted.spain.parallaxlayerlayout.ParallaxLayerLayout
+        android:id="@+id/parallax"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+        <View
+            android:id="@+id/layer_3"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:background="@drawable/ic_three" />
+        <View
+            android:id="@+id/layer_2"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:background="@drawable/ic_tow" />
+        <View
+            android:id="@+id/layer_1"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:background="@drawable/ic_one" />
+
+    </com.schibsted.spain.parallaxlayerlayout.ParallaxLayerLayout>
+
+    <Button
+        android:layout_marginTop="300dp"
+        android:gravity="center"
+        android:id="@+id/red"
+        android:textSize="13sp"
+        android:textColor="@color/Mischka"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/myedittext"
+        android:layout_width="225dp"
+        android:layout_height="45dp"
+        android:text="Download Lite Red 💖" />
+
+    <Button
+        android:layout_marginTop="350dp"
+        android:id="@+id/green"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:textColor="@color/Mischka"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/myedittext"
+        android:layout_width="225dp"
+        android:layout_height="45dp"
+        android:text="Download Lite Green 💖" />
+
+    <Button
+        android:layout_marginTop="400dp"
+        android:id="@+id/pink"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:textColor="@color/Mischka"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/myedittext"
+        android:layout_width="225dp"
+        android:layout_height="45dp"
+        android:text="Download Lite Pink 💖" />
+
+    <Button
+        android:layout_marginTop="450dp"
+        android:id="@+id/black"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:textColor="@color/Mischka"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/myedittext"
+        android:layout_width="225dp"
+        android:layout_height="45dp"
+        android:text="Download Lite Black 💖" />
+
+
+    <com.ebanx.swipebtn.SwipeButton
+        android:id="@+id/swipe_btn"
+        android:layout_marginTop="550dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:inner_text="SWIPE TO ENABLE"
+        app:inner_text_color="@android:color/white"
+        app:inner_text_size="16sp"
+        app:inner_text_top_padding="18dp"
+        app:inner_text_bottom_padding="18dp"
+        app:inner_text_background="@drawable/my_swipe_backgrund"
+        app:button_image_height="60dp"
+        app:button_image_width="100dp"
+        app:button_image_disabled="@drawable/ic_wrong"
+        app:button_image_enabled="@drawable/write"
+        app:button_left_padding="20dp"
+        app:button_right_padding="20dp"
+        app:button_top_padding="20dp"
+        app:button_bottom_padding="20dp"
+        app:button_background="@drawable/my_swipe_button_backgrund_this_is_my_disgine_yes_of_corus"
+        app:initial_state="disabled"
+        app:has_activate_state="true"
+        />
+
+
 
 
 </RelativeLayout>
