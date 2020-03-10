@@ -2,6 +2,7 @@ package com.sanoj.mod.plzlite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AppOpsManager;
 import android.content.Context;
@@ -26,6 +27,8 @@ import android.widget.Toast;
 import com.dcastalia.localappupdate.DownloadApk;
 import com.ebanx.swipebtn.OnStateChangeListener;
 import com.ebanx.swipebtn.SwipeButton;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
 import com.jaredrummler.android.shell.Shell;
 import com.sanoj.mod.service.FloatWidgetService;
 import com.schibsted.spain.parallaxlayerlayout.AnimatedTranslationUpdater;
@@ -60,13 +63,11 @@ public class MainActivity extends AppCompatActivity {
         pink = findViewById(R.id.pink);
         black = findViewById(R.id.black);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package:" + getPackageName()));
-            startActivityForResult(intent, APP_PERMISSION_REQUEST);
-        } else {
-
-        }
+        TedPermission.with(this)
+                .setPermissionListener(permissionlistener)
+                .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
+                .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW)
+                .check();
 
 
         translationUpdater = new SensorTranslationUpdater(this);
@@ -176,9 +177,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == APP_PERMISSION_REQUEST && resultCode == RESULT_OK) {
-
+            Toast.makeText(this, "Draw over other app permission enable.", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Draw over other app permission not enable.", Toast.LENGTH_SHORT).show();
+
         }
     }
+    PermissionListener permissionlistener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+            Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onPermissionDenied(List<String> deniedPermissions) {
+            Toast.makeText(MainActivity.this, "These permissions are required to proceed. Please try again\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
+
+    };
 }
