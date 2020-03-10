@@ -34,6 +34,5 @@ dependencies {
     implementation 'com.github.Piashsarker:AndroidAppUpdateLibrary:1.0.3'
     implementation 'com.schibsted.spain:parallax-layer-layout:1.1.1'
     implementation 'com.ebanx:swipe-button:0.8.3'
-    implementation 'com.jaredrummler:android-shell:1.0.0'
     implementation 'gun0912.ted:tedpermission-rx2:2.2.3'
 }

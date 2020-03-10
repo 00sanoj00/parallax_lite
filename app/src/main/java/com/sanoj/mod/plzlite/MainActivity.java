@@ -3,40 +3,24 @@ package com.sanoj.mod.plzlite;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.text.NoCopySpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.dcastalia.localappupdate.DownloadApk;
 import com.ebanx.swipebtn.OnStateChangeListener;
 import com.ebanx.swipebtn.SwipeButton;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
-import com.jaredrummler.android.shell.Shell;
 import com.sanoj.mod.service.FloatWidgetService;
 import com.schibsted.spain.parallaxlayerlayout.AnimatedTranslationUpdater;
 import com.schibsted.spain.parallaxlayerlayout.ParallaxLayerLayout;
 import com.schibsted.spain.parallaxlayerlayout.SensorTranslationUpdater;
-
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -66,12 +50,11 @@ public class MainActivity extends AppCompatActivity {
         TedPermission.with(this)
                 .setPermissionListener(permissionlistener)
                 .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
-                .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW)
+                .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .check();
 
 
         translationUpdater = new SensorTranslationUpdater(this);
-
         parallaxLayout = (ParallaxLayerLayout) findViewById(R.id.parallax);
         parallaxLayout.setTranslationUpdater(new AnimatedTranslationUpdater(0.8f));
 
@@ -82,10 +65,6 @@ public class MainActivity extends AppCompatActivity {
             public void onStateChange(boolean active) {
                 Toast.makeText(MainActivity.this, "State: " + active, Toast.LENGTH_SHORT).show();
                 startService(new Intent(MainActivity.this, FloatWidgetService.class));
-
-                //Shell.SH.run("am start -n com.facebook.liti/com.facebook.liti.MainActivity");
-                //Shell.run("am start -n com.facebook.liti/com.facebook.liti.MainActivity");
-
             }
         });
 
